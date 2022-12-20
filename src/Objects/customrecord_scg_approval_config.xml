@@ -11,7 +11,7 @@
   <allowuiaccess>T</allowuiaccess>
   <customsegment></customsegment>
   <description>Holds the definition of an Approval Workflow</description>
-  <enabledle>T</enabledle>
+  <enabledle>F</enabledle>
   <enablekeywords>T</enablekeywords>
   <enablemailmerge>F</enablemailmerge>
   <enablenametranslation>F</enablenametranslation>

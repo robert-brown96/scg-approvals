@@ -34,6 +34,7 @@ define(["N/record", "N/ui/serverWidget", "N/error"], (
       * @since 2015.2
       */
      const _get = async context => {
+          let form;
           await Promise.all(
                params.map(p => {
                     if (!Object.keys(context.request.parameters).includes(p))
@@ -44,13 +45,32 @@ define(["N/record", "N/ui/serverWidget", "N/error"], (
                          });
                })
           );
-          const { action, tran, approver, next } = context.request.parameters;
+          const { action, tran, approver, next, recType } =
+               context.request.parameters;
 
           if (action === "APPROVE") {
                log.debug({
                     title: `ADVANCE TRANSACTION ${tran}`,
                     details: `next stage is ${next} by ${approver}`
                });
+
+               record.submitFields({
+                    type: recType,
+                    id: parseInt(tran),
+                    values: { custbody_scg_approval_s_hide: parseInt(next) }
+               });
+               form = serverWidget.createForm({
+                    title: "Purchase Approved",
+                    hideNavBar: true
+               });
+               const approvedFld = form.addField({
+                    id: "custpage_message",
+                    type: serverWidget.FieldType.INLINEHTML,
+                    label: "Approved Successfully"
+               });
+               approvedFld.setDefaultValue(
+                    '<font size="8"><b>Purchase Order Approved Successfully</b></font>'
+               );
           } else if (action === "REJECT") {
                log.debug({
                     title: `REJECT TRANSACTION ${tran}`,
@@ -62,6 +82,8 @@ define(["N/record", "N/ui/serverWidget", "N/error"], (
                     message: `INVALID ACTION ${action}`,
                     notifyOff: false
                });
+
+          context.response.writePage(form);
      };
 
      /**
@@ -71,9 +93,11 @@ define(["N/record", "N/ui/serverWidget", "N/error"], (
       * @param {ServerResponse} context.response - Suitelet response
       * @since 2015.2
       */
-     const _post = async context => {};
+     const _post = async context => {
+          log.debug("post", context);
+     };
 
-     const params = ["action", "tran", "approver", "next"];
+     const params = ["action", "tran", "approver", "next", "recType"];
 
      return { onRequest };
 });
