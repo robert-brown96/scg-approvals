@@ -120,4 +120,17 @@
       <subtab></subtab>
     </customrecordcustomfield>
   </customrecordcustomfields>
+  <links>
+    <link>
+      <linkcategory>BASICSETUPACCOUNTING</linkcategory>
+      <linklabel></linklabel>
+      <linktasktype>LIST</linktasktype>
+    </link>
+  </links>
+  <subtabs>
+    <subtab scriptid="tab_277_t2567162_824">
+      <tabparent></tabparent>
+      <tabtitle>Stages</tabtitle>
+    </subtab>
+  </subtabs>
 </customrecordtype>
