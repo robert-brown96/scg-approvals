@@ -2,7 +2,14 @@
  * @NApiVersion 2.1
  * @NScriptType WorkflowActionScript
  */
-define(["N/email", "N/render"], (email, render) => {
+define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
+     email,
+     render,
+     runtime,
+     search,
+     file,
+     record
+) => {
      /**
       * Defines the WorkflowAction script trigger point.
       * @param {Object} context
@@ -15,18 +22,68 @@ define(["N/email", "N/render"], (email, render) => {
       */
      const onAction = context => {
           try {
-               let senderId;
+               const scrip = runtime.getCurrentScript();
+
+               const transactionId = context.newRecord.id;
+
+               const senderId = scrip.getParameter({
+                    name: "custscript_sender"
+               });
                //let recipientEmail;
-               let recipientId;
-               let fileObjs = [];
-               let transactionId = context.newRecord.id;
-               let entityId;
-               let templateId;
+               const recipientId = scrip.getParameter({
+                    name: "custscript_recipient"
+               });
+               const includeFiles = scrip.getParameter({
+                    name: "custscript_include_files"
+               });
+               const fileObjs = [];
+
+               // get all attachments if parameter is true
+               if (includeFiles) {
+                    //attach the transaction print out
+                    const pdfTran = render.transaction({
+                         entityId: transactionId,
+                         printMode: render.PrintMode.PDF
+                    });
+                    fileObjs.push(pdfTran);
+
+                    // check if any other files are attached
+                    const transactionSearchObj = search.create({
+                         type: "transaction",
+                         filters: [
+                              ["mainline", "is", "T"],
+                              "AND",
+                              ["internalid", "anyof", transactionId]
+                         ],
+                         columns: [
+                              search.createColumn({
+                                   name: "internalid",
+                                   join: "file",
+                                   label: "Internal ID"
+                              })
+                         ]
+                    });
+                    transactionSearchObj.run().each(res => {
+                         const fileId = res.getValue({
+                              name: "internalid",
+                              join: "file",
+                              label: "Internal ID"
+                         });
+                         const fileObj = file.load({
+                              id: fileId
+                         });
+                         fileObjs.push(fileObj);
+                         return true;
+                    });
+               }
+
+               const templateId = scrip.getParameter({
+                    name: "custscript_template"
+               });
 
                const mergeResult = render.mergeEmail({
                     templateId,
-                    transactionId,
-                    entityId
+                    transactionId
                });
 
                email.send({
@@ -34,12 +91,30 @@ define(["N/email", "N/render"], (email, render) => {
                     recipients: recipientId,
                     subject: mergeResult.subject,
                     body: mergeResult.body,
-                    attachments: fileObjs
+                    attachments: fileObjs,
+                    relatedRecords: {
+                         entityId: recipientId,
+                         transactionId
+                    }
+               });
+               record.submitFields({
+                    type: context.newRecord.type,
+                    id: transactionId,
+                    values: {
+                         custbody_scg_approval_last_email_date: new Date()
+                    }
                });
           } catch (e) {
                log.error({
                     title: "onAction: ERROR",
                     details: e
+               });
+               record.submitFields({
+                    type: context.newRecord.type,
+                    id: context.newRecord.id,
+                    values: {
+                         custbody_scg_approval_last_email_error: e
+                    }
                });
           }
      };
