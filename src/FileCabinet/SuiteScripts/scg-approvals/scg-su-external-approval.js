@@ -2,10 +2,11 @@
  * @NApiVersion 2.1
  * @NScriptType Suitelet
  */
-define(["N/record", "N/ui/serverWidget", "N/error"], (
+define(["N/record", "N/ui/serverWidget", "N/error", "N/workflow"], (
      record,
      serverWidget,
-     error
+     error,
+     workflow
 ) => {
      /**
       * Defines the Suitelet script trigger point.
@@ -52,6 +53,14 @@ define(["N/record", "N/ui/serverWidget", "N/error"], (
                log.debug({
                     title: `ADVANCE TRANSACTION ${tran}`,
                     details: `next stage is ${next} by ${approver}`
+               });
+
+               // TODO: remove hard coded record type
+               workflow.trigger({
+                    actionId: action,
+                    recordId: tran,
+                    recordType: record.Type.VENDOR_BILL,
+                    workflowId: 28
                });
 
                record.submitFields({
