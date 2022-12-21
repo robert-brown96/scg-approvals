@@ -1,0 +1,25 @@
+<suitelet scriptid="customscript_scg_su_approval_ext">
+  <description>Triggers approval workflow from external link</description>
+  <isinactive>F</isinactive>
+  <name>SCG | SU | External Approval</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/scg-approvals/scg-su-external-approval.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_scg_su_approval_ext">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <isdeployed>T</isdeployed>
+      <isonline>T</isonline>
+      <loglevel>DEBUG</loglevel>
+      <runasrole></runasrole>
+      <status>RELEASED</status>
+      <title>SCG | SU | External Approval</title>
+    </scriptdeployment>
+  </scriptdeployments>
+</suitelet>
