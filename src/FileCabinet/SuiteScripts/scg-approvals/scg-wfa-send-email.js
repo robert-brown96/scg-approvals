@@ -8,6 +8,7 @@ define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
      runtime,
      search,
      file,
+     // eslint-disable-next-line no-unused-vars
      record
 ) => {
      /**
@@ -22,6 +23,10 @@ define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
       */
      const onAction = context => {
           try {
+               log.debug({
+                    title: "start",
+                    details: context
+               });
                const scrip = runtime.getCurrentScript();
 
                const transactionId = context.newRecord.id;
@@ -69,10 +74,12 @@ define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
                               join: "file",
                               label: "Internal ID"
                          });
-                         const fileObj = file.load({
-                              id: fileId
-                         });
-                         fileObjs.push(fileObj);
+                         if (fileId) {
+                              const fileObj = file.load({
+                                   id: fileId
+                              });
+                              fileObjs.push(fileObj);
+                         }
                          return true;
                     });
                }
@@ -97,25 +104,25 @@ define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
                          transactionId
                     }
                });
-               record.submitFields({
-                    type: context.newRecord.type,
-                    id: transactionId,
-                    values: {
-                         custbody_scg_approval_last_email_date: new Date()
-                    }
-               });
+               // record.submitFields({
+               //      type: context.newRecord.type,
+               //      id: transactionId,
+               //      values: {
+               //           custbody_scg_approval_last_email_date: new Date()
+               //      }
+               // });
           } catch (e) {
                log.error({
                     title: "onAction: ERROR",
                     details: e
                });
-               record.submitFields({
-                    type: context.newRecord.type,
-                    id: context.newRecord.id,
-                    values: {
-                         custbody_scg_approval_last_email_error: e
-                    }
-               });
+               // record.submitFields({
+               //      type: context.newRecord.type,
+               //      id: context.newRecord.id,
+               //      values: {
+               //           custbody_scg_approval_last_email_error: e
+               //      }
+               // });
           }
      };
 
