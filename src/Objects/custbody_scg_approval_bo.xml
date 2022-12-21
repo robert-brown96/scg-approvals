@@ -19,6 +19,7 @@
   <bodyprintstatement>F</bodyprintstatement>
   <bodypurchase>T</bodypurchase>
   <bodysale>F</bodysale>
+  <bodystore>F</bodystore>
   <bodyvendorpayment>F</bodyvendorpayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
@@ -49,12 +50,12 @@
   <searchlevel>2</searchlevel>
   <selectrecordtype>-4</selectrecordtype>
   <showhierarchy>F</showhierarchy>
-  <showinlist>F</showinlist>
+  <showinlist>T</showinlist>
   <sourcefilterby></sourcefilterby>
   <sourcefrom></sourcefrom>
   <sourcelist></sourcelist>
   <storevalue>T</storevalue>
-  <subtab></subtab>
+  <subtab>TRANSACTIONMAIN</subtab>
   <customfieldfilters>
     <customfieldfilter>
       <fldcomparefield></fldcomparefield>

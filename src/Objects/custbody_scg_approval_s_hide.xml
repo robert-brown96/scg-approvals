@@ -19,6 +19,7 @@
   <bodyprintstatement>F</bodyprintstatement>
   <bodypurchase>T</bodypurchase>
   <bodysale>F</bodysale>
+  <bodystore>F</bodystore>
   <bodyvendorpayment>F</bodyvendorpayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
@@ -26,7 +27,7 @@
   <defaultvalue></defaultvalue>
   <description>Approval stage of the transaction used for processing</description>
   <displayheight></displayheight>
-  <displaytype>NORMAL</displaytype>
+  <displaytype>STATICTEXT</displaytype>
   <displaywidth></displaywidth>
   <dynamicdefault></dynamicdefault>
   <encryptatrest>F</encryptatrest>
@@ -54,5 +55,5 @@
   <sourcefrom></sourcefrom>
   <sourcelist></sourcelist>
   <storevalue>T</storevalue>
-  <subtab></subtab>
+  <subtab>TRANSACTIONSYSTEMINFORMATION</subtab>
 </transactionbodycustomfield>

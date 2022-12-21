@@ -17,8 +17,9 @@
   <bodyprintflag>F</bodyprintflag>
   <bodyprintpackingslip>F</bodyprintpackingslip>
   <bodyprintstatement>F</bodyprintstatement>
-  <bodypurchase>F</bodypurchase>
+  <bodypurchase>T</bodypurchase>
   <bodysale>F</bodysale>
+  <bodystore>F</bodystore>
   <bodyvendorpayment>F</bodyvendorpayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
@@ -26,7 +27,7 @@
   <defaultvalue></defaultvalue>
   <description>Shows if there was an error last time the transaction had an email for approvals triggered</description>
   <displayheight></displayheight>
-  <displaytype>NORMAL</displaytype>
+  <displaytype>HIDDEN</displaytype>
   <displaywidth></displaywidth>
   <dynamicdefault></dynamicdefault>
   <encryptatrest>F</encryptatrest>

@@ -17,8 +17,9 @@
   <bodyprintflag>F</bodyprintflag>
   <bodyprintpackingslip>F</bodyprintpackingslip>
   <bodyprintstatement>F</bodyprintstatement>
-  <bodypurchase>F</bodypurchase>
+  <bodypurchase>T</bodypurchase>
   <bodysale>F</bodysale>
+  <bodystore>F</bodystore>
   <bodyvendorpayment>F</bodyvendorpayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
@@ -54,5 +55,5 @@
   <sourcefrom></sourcefrom>
   <sourcelist></sourcelist>
   <storevalue>T</storevalue>
-  <subtab></subtab>
+  <subtab>TRANSACTIONSYSTEMINFORMATION</subtab>
 </transactionbodycustomfield>
