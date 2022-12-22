@@ -1,4 +1,4 @@
-<transactionbodycustomfield scriptid="custbody_scg_approval_s_hide">
+<transactionbodycustomfield scriptid="custbody_scg_approval_config">
   <accesslevel>2</accesslevel>
   <applyformatting>F</applyformatting>
   <bodycustomerpayment>F</bodycustomerpayment>
@@ -23,22 +23,22 @@
   <bodyvendorpayment>F</bodyvendorpayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
-  <defaultselection>[scriptid=customrecord_scg_approval_rule.val_59226_5691240_218]</defaultselection>
+  <defaultselection>[scriptid=customrecord_scg_approval_config.val_59221_5691240_125]</defaultselection>
   <defaultvalue></defaultvalue>
-  <description>Approval stage of the transaction used for processing</description>
+  <description></description>
   <displayheight></displayheight>
-  <displaytype>STATICTEXT</displaytype>
+  <displaytype>NORMAL</displaytype>
   <displaywidth></displaywidth>
   <dynamicdefault></dynamicdefault>
   <encryptatrest>F</encryptatrest>
   <fieldtype>SELECT</fieldtype>
   <fldsizelabel></fldsizelabel>
   <globalsearch>F</globalsearch>
-  <help>Approval stage of the transaction used for processing</help>
+  <help></help>
   <isformula>F</isformula>
   <ismandatory>F</ismandatory>
   <isparent>F</isparent>
-  <label>Approval Stage</label>
+  <label>Approval Configuration</label>
   <linktext></linktext>
   <maxlength></maxlength>
   <maxvalue></maxvalue>
@@ -48,7 +48,7 @@
   <searchcomparefield></searchcomparefield>
   <searchdefault></searchdefault>
   <searchlevel>2</searchlevel>
-  <selectrecordtype>[scriptid=customrecord_scg_approval_rule]</selectrecordtype>
+  <selectrecordtype>[scriptid=customrecord_scg_approval_config]</selectrecordtype>
   <showhierarchy>F</showhierarchy>
   <showinlist>F</showinlist>
   <sourcefilterby></sourcefilterby>

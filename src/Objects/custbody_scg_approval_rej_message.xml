@@ -1,4 +1,4 @@
-<transactionbodycustomfield scriptid="custbody_scg_approval_s_hide">
+<transactionbodycustomfield scriptid="custbody_scg_approval_rej_message">
   <accesslevel>2</accesslevel>
   <applyformatting>F</applyformatting>
   <bodycustomerpayment>F</bodycustomerpayment>
@@ -23,37 +23,37 @@
   <bodyvendorpayment>F</bodyvendorpayment>
   <checkspelling>F</checkspelling>
   <defaultchecked>F</defaultchecked>
-  <defaultselection>[scriptid=customrecord_scg_approval_rule.val_59226_5691240_218]</defaultselection>
+  <defaultselection></defaultselection>
   <defaultvalue></defaultvalue>
-  <description>Approval stage of the transaction used for processing</description>
+  <description>User provided reason for the transaction being rejected</description>
   <displayheight></displayheight>
-  <displaytype>STATICTEXT</displaytype>
+  <displaytype>NORMAL</displaytype>
   <displaywidth></displaywidth>
   <dynamicdefault></dynamicdefault>
   <encryptatrest>F</encryptatrest>
-  <fieldtype>SELECT</fieldtype>
+  <fieldtype>CLOBTEXT</fieldtype>
   <fldsizelabel></fldsizelabel>
   <globalsearch>F</globalsearch>
-  <help>Approval stage of the transaction used for processing</help>
+  <help>User provided reason for the transaction being rejected</help>
   <isformula>F</isformula>
   <ismandatory>F</ismandatory>
   <isparent>F</isparent>
-  <label>Approval Stage</label>
+  <label>Rejection Message</label>
   <linktext></linktext>
   <maxlength></maxlength>
   <maxvalue></maxvalue>
   <minvalue></minvalue>
-  <onparentdelete>NO_ACTION</onparentdelete>
+  <onparentdelete></onparentdelete>
   <parentsubtab></parentsubtab>
   <searchcomparefield></searchcomparefield>
   <searchdefault></searchdefault>
   <searchlevel>2</searchlevel>
-  <selectrecordtype>[scriptid=customrecord_scg_approval_rule]</selectrecordtype>
+  <selectrecordtype></selectrecordtype>
   <showhierarchy>F</showhierarchy>
   <showinlist>F</showinlist>
   <sourcefilterby></sourcefilterby>
   <sourcefrom></sourcefrom>
   <sourcelist></sourcelist>
   <storevalue>T</storevalue>
-  <subtab>TRANSACTIONSYSTEMINFORMATION</subtab>
+  <subtab>TRANSACTIONITEMS</subtab>
 </transactionbodycustomfield>
