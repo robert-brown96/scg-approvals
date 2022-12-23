@@ -36,7 +36,7 @@ define(["N/record", "N/ui/serverWidget", "N/error", "N/workflow"], (
       */
      const _get = context => {
           let form = serverWidget.createForm({
-               title: "Purchase Approval"
+               title: " "
           });
 
           params.forEach(p => {

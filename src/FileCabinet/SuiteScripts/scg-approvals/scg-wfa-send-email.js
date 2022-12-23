@@ -38,6 +38,10 @@ define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
                const recipientId = scrip.getParameter({
                     name: "custscript_recipient"
                });
+               log.debug({
+                    title: "r",
+                    details: recipientId
+               });
                const includeFiles = scrip.getParameter({
                     name: "custscript_include_files"
                });
@@ -86,6 +90,10 @@ define(["N/email", "N/render", "N/runtime", "N/search", "N/file", "N/record"], (
 
                const templateId = scrip.getParameter({
                     name: "custscript_template"
+               });
+               log.debug({
+                    title: "t",
+                    details: templateId
                });
 
                const mergeResult = render.mergeEmail({
